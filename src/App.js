@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {Component} from 'react';
+import {Route,Switch} from "react-router-dom";
+import GetAll from './GetAll';
+import Create from './Create';
+import Get from './Get';
+import Update from './Update';
+import Delete from './Delete';
 
-function App() {
+class App extends Component {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    /* Use Switch to route all the url patterns our app will accept to React components */
+      <Switch>
+        <Route path="/" component={GetAll}/>
+        <Route path="/Get" component={Get}/>
+        <Route path="/Create" component={Create}/>
+        <Route path="/Update" component={Update}/>
+        <Route path="/Delete" component={Delete}/>
+      </Switch>
+
     </div>
   );
 }

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { IsConstructor } from 'es-abstract';
 
-class Get extends Component {
+class Delete extends Component {
 
   constructor(props){
     super(props);
@@ -15,13 +15,13 @@ class Get extends Component {
     this.setState({id: event.target.value});
   }
 
-  getProduct(){
+  deleteProduct(){
     // make an Ajax call to retrieve a single product
     const axios = require('axios');
-    axios.get("http://localhost:8080/api/products/" + this.state.id)
+    axios.delete("http://localhost:8080/api/products/" + this.state.id)
       .then(response => {
-        // take the 0th element of the array and assign it to the product object
-        this.setState({product: response.data[0]});
+        console.log(response.data);
+        
       }).catch(error => {
         console.error('Error',error);
       })  
@@ -31,12 +31,9 @@ class Get extends Component {
     return (
       <div>
          Enter Product ID: <input onChange={this.onIdChange}/>
-         <button onClick={this.getProduct.bind(this)}>Get Product</button>
+         <button onClick={this.deleteProduct.bind(this)}>Delete Product</button>
          <br/><br/>
-         Id: {this.state.product.id}<br/>
-         Name: {this.state.product.name}<br/>
-         Desc: {this.state.product.description}<br/>
-         Price: {this.state.product.price}<br/>
+
       </div>
     );
   }
@@ -44,4 +41,4 @@ class Get extends Component {
 
 }
 
-export default Get;
+export default Delete;
