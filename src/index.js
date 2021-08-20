@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GetAll from './GetAll';
+import Get from './Get';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  /*<React.StrictMode>*/
+    <Get/>
+  /*</React.StrictMode>*/,
   document.getElementById('root')
 );
 
